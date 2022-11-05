@@ -15,38 +15,37 @@ class SlackdeetView(APIView):
         #json_slackdeet = json.dumps(slackdeets, safe=False)
         return JsonResponse(slackdeets)
     def post(self, request):
-        try:
+
             data = request.data
 
             operator_type = data['operator_type']
-            integer1 = data['x']
-            integer2 = data['y']
-            slackname = 'lee'
-            if operator_type == 'addition':
+            integer1 = data["x"]
+            integer2 = data["y"]
+            if operator_type == ('addition', 'add', 'plus', '+', 'sum'):
                 result = integer1 + integer2
                 deet = {}
+                deet['slackUsername'] = 'Lee'
                 deet['result']= result
                 deet['operation_type'] = operator_type
-                deet['slackUsername'] = 'Lee'
                 return Response(deet)
 
 
-            elif operator_type == 'subtraction':
+            elif operator_type == ('subtraction', 'minus','-' ):
                 result = integer1 - integer2
                 deet = {}
+                deet['slackUsername'] = 'Lee'
                 deet['result']= result
                 deet['operation_type'] = operator_type
-                deet['slackUsername'] = 'Lee'
                 return Response(deet)
+
             else:
-                operator_type == 'multiplication'
+                operator_type == ('multiplication', 'times', 'multiply', '*' , 'x', 'X')
                 result = integer1 * integer2
                 deet = {}
+                deet['slackUsername'] = 'Lee'
                 deet['result']= result
                 deet['operation_type'] = operator_type
-                deet['slackUsername'] = 'Lee'
                 return Response(deet)
-        except: raise Exception
 
         
         
