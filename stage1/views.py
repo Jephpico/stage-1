@@ -18,7 +18,7 @@ class SlackdeetView(APIView):
     
             data = request.data
 
-            op_type = data['operator_type']
+            op_type = data['operation_type']
             integer1 = int(data['x'])
             integer2 = int(data['y'])
 
@@ -38,7 +38,7 @@ class SlackdeetView(APIView):
             computed_data = {
                 "slackUsername":"lee",
                 "result": result,
-                "operator_type": op_type
+                "operation_type": op_type
             }
             return Response(computed_data, status=status.HTTP_200_OK)
 
